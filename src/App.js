@@ -4,8 +4,9 @@ import "./App.css";
 import { HomePage } from "./components/Home.page";
 import { RQSuperHeroesPage } from "./components/RQSuperHeroes.page";
 import { SuperHeroesPage } from "./components/SuperHeroes.page";
-import {ReactQueryDevtools} from 'react-query/devtools';
+import { ReactQueryDevtools } from "react-query/devtools";
 import { RQSuperHeroPage } from "./components/RQSuperHero.page";
+import { ParallelQueriesPage } from "./components/ParallelQueries.page";
 
 function App() {
   const queryClient = new QueryClient();
@@ -28,15 +29,19 @@ function App() {
           </nav>
           <Routes>
             <Route path="/super-heroes" element={<SuperHeroesPage />} />
-            <Route path="/rq-super-heroes/:heroId" element={<RQSuperHeroPage />} />
+            <Route
+              path="/rq-super-heroes/:heroId"
+              element={<RQSuperHeroPage />}
+            />
             <Route path="/rq-super-heroes" element={<RQSuperHeroesPage />} />
+            <Route path="/rq-parallel" element={<ParallelQueriesPage />} />
             <Route path="/" element={<HomePage />} />
           </Routes>
         </div>
       </Router>
-      <ReactQueryDevtools initialIsOpen={false} position='bottom-right' />
+      <ReactQueryDevtools initialIsOpen={false} position="bottom-right" />
     </QueryClientProvider>
   );
-};
+}
 
 export default App;
