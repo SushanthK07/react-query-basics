@@ -11,7 +11,7 @@ export const PaginatedQueriesPage = () => {
   const { isLoading, isError, error, data, isFetching } = useQuery(
     ["colors", pageNumber],
     () => fetchColors(pageNumber),
-    { keepPreviousData: true }
+    // { keepPreviousData: true }
   );
 
   if (isLoading) {

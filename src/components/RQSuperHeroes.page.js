@@ -14,6 +14,7 @@ export const RQSuperHeroesPage = () => {
   const { isLoading, data, isError, error, isFetching } = useSuperHeroesData({
     onSuccess,
     onError,
+    // enabled: false,
   });
 
   console.log({ isLoading, isFetching });
@@ -29,6 +30,7 @@ export const RQSuperHeroesPage = () => {
   return (
     <>
       <h2>Super Heroes Page</h2>
+      {/* <button onClick={refetch}>Fetch</button> */}
       {data?.data.map((hero) => {
         return (
           <div key={hero.id}>
