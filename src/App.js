@@ -11,6 +11,7 @@ import { DynamicParallelPage } from "./components/DynamicParallel.page";
 import { DependentQueriesPage } from "./components/DependantQueries.page";
 import { PaginatedQueriesPage } from "./components/PaginatedQueries.page";
 import { InfiniteQueriesPage } from "./components/InfiniteQueries.page";
+import { BasicRQSuperHeroesPage } from "./components/BasicRQSuperHeroes.page";
 
 function App() {
   const queryClient = new QueryClient();
@@ -27,12 +28,34 @@ function App() {
                 <Link to="/super-heroes">Traditional Super Heroes</Link>
               </li>
               <li>
+                <Link to="/rq-super-heroes-basic">Basic RQ Super Heroes</Link>
+              </li>
+              <li>
                 <Link to="/rq-super-heroes">RQ Super Heroes</Link>
+              </li>
+              <li>
+                <Link to="/rq-parallel">RQ Parallel queries</Link>
+              </li>
+              <li>
+                <Link to="/rq-dynamic-parallel">RQ Dynamic Parallel queries</Link>
+              </li>
+              <li>
+                <Link to="/rq-dependent">RQ Dependent queries</Link>
+              </li>
+              <li>
+                <Link to="/rq-paginated">RQ Paginated queries</Link>
+              </li>
+              <li>
+                <Link to="/rq-infinite">RQ Infinite queries</Link>
               </li>
             </ul>
           </nav>
           <Routes>
             <Route path="/super-heroes" element={<SuperHeroesPage />} />
+            <Route
+              path="/rq-super-heroes-basic"
+              element={<BasicRQSuperHeroesPage />}
+            />
             <Route
               path="/rq-super-heroes/:heroId"
               element={<RQSuperHeroPage />}
@@ -47,8 +70,8 @@ function App() {
               path="/rq-dependent"
               element={<DependentQueriesPage email="username@domain.com" />}
             />
-            <Route path='/rq-paginated' element={<PaginatedQueriesPage />} />
-            <Route path='/rq-infinite' element={<InfiniteQueriesPage />} />
+            <Route path="/rq-paginated" element={<PaginatedQueriesPage />} />
+            <Route path="/rq-infinite" element={<InfiniteQueriesPage />} />
             <Route path="/" element={<HomePage />} />
           </Routes>
         </div>
