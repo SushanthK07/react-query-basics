@@ -7,12 +7,24 @@ const fetchColors = (pageNumber) => {
 };
 
 export const PaginatedQueriesPage = () => {
+  // const queryClient = useQueryClient();
   const [pageNumber, setPageNumber] = React.useState(1);
   const { isLoading, isError, error, data, isFetching } = useQuery(
     ["colors", pageNumber],
     () => fetchColors(pageNumber),
-    // { keepPreviousData: true }
+    {
+      staleTime: 10000,
+      // keepPreviousData: true,
+    }
   );
+
+  // React.useEffect(() => {
+  //   if (pageNumber < 4) {
+  //     queryClient.prefetchQuery(["colors", pageNumber + 1], () =>
+  //       fetchColors(pageNumber + 1)
+  //     );
+  //   }
+  // }, [pageNumber, queryClient]);
 
   if (isLoading) {
     return <h2>Loading...</h2>;
